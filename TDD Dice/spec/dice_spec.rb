@@ -10,9 +10,12 @@ describe Dice do
   it "throws a random number between 1 and 6 inclusive" do
     dice = Dice.new
     srand(23454)
-    10.times { 1 + rand(6) }
+    output = []
+    actual_output = []
+    10.times { output << (dice.roll(1)) }
     srand(23454)
-    10.times { expect(dice.roll(1)[0]).to eq(1 + rand(6)) }
+    10.times { actual_output << (dice.roll(1))}
+    expect(output).to eq actual_output
   end
   it "rolls multiple dice" do
     dice = Dice.new
