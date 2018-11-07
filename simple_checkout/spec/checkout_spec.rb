@@ -14,14 +14,12 @@ describe Checkout do
     expect(checkout.total_price_in_pounds).to eq "£0.00"
   end
   it "correctly displays items <£1 as £0.xx" do
-    allow(item).to receive(:price=).and_return(0.20)
-    allow(item).to receive(:price).and_return(0.20)
+    allow(item).to receive_messages(:price= => 0.20, :price => 0.20)
     checkout.scan(item)
     expect(checkout.total_price_in_pounds).to eq "£0.20"
   end
   it "correct displays items priced at £300.23 as that" do
-    allow(item).to receive(:price=).and_return(300.23)
-    allow(item).to receive(:price).and_return(300.23)
+    allow(item).to receive_messages(:price= => 300.23, :price => 300.23)
     checkout.scan(item)
     expect(checkout.total_price_in_pounds).to eq "£300.23"
   end
