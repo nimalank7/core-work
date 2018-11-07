@@ -1,12 +1,6 @@
-=begin
-Object: Checkout
-Method: Scan (which takes an item argument)
-
-=end
-
 class Item
-  attr_reader :price
+  attr_accessor :price
   def initialize
-    @price = "£2.00"
+    @price = 20.0 # We are storing in pounds
   end
 end
