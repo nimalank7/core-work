@@ -13,4 +13,8 @@ describe SecretDiary do
   it "unlocks the diary" do
     expect{secret_diary.unlock}.to change{secret_diary.locked}.from(true).to(false)
   end
+  it "locks the diary" do
+    secret_diary.unlock
+    expect{secret_diary.lock}.to change{secret_diary.locked}.from(false).to(true)
+  end
 end

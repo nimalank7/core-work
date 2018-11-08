@@ -7,6 +7,9 @@ class SecretDiary
   def unlock
     @locked = false
   end
+  def lock
+    @locked = true
+  end
 end
 =begin
 add_entry and get_entries shoud throw an error
