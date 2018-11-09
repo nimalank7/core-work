@@ -10,6 +10,14 @@ class SecretDiary
   def lock
     @locked = true
   end
+  def add_entry(entry)
+    @entries << entry
+  end
+  def get_entries
+    @entries.each do |entry|
+      puts entry
+    end
+  end
 end
 =begin
 add_entry and get_entries shoud throw an error
