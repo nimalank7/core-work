@@ -11,9 +11,11 @@ class SecretDiary
     @locked = true
   end
   def add_entry(entry)
+    raise "Error cannot add entry whilst diary is locked" if @locked
     @entries << entry
   end
   def get_entries
+    raise "Error cannot get entries whilst diary is locked" if @locked
     @entries.each do |entry|
       puts entry
     end

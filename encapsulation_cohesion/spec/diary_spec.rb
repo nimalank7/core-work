@@ -27,4 +27,10 @@ describe SecretDiary do
     secret_diary.add_entry("Day 1")
     expect{secret_diary.get_entries}.to output("Day 1\n").to_stdout
   end
+  it "raises error when adding an entries when locked" do
+    expect{secret_diary.add_entry("Day 1")}.to raise_error("Error cannot add entry whilst diary is locked")
+  end
+  it "raises error when getting entries when locked" do
+    expect{secret_diary.get_entries}.to raise_error("Error cannot get entries whilst diary is locked")
+  end
 end
