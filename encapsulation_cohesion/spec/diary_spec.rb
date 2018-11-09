@@ -17,11 +17,13 @@ describe SecretDiary do
     secret_diary.unlock
     expect{secret_diary.lock}.to change{secret_diary.locked}.from(false).to(true)
   end
-  it "adds entries" do
+  it "adds entries when unlocked" do
+    secret_diary.unlock
     secret_diary.add_entry("Day 1")
     expect(secret_diary.entries[0]).to eq "Day 1"
   end
-  it "gets entries" do
+  it "gets entries when unlocked" do
+    secret_diary.unlock
     secret_diary.add_entry("Day 1")
     expect{secret_diary.get_entries}.to output("Day 1\n").to_stdout
   end
