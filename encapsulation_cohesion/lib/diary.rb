@@ -1,8 +1,9 @@
+require_relative "./entries.rb"
 class SecretDiary
   attr_reader :entries, :locked
-  def initialize
-    @entries = []
+  def initialize(entries = Entries)
     @locked = true
+    @entries = entries.new
   end
   def unlock
     @locked = false
@@ -12,22 +13,10 @@ class SecretDiary
   end
   def add_entry(entry)
     raise "Error cannot add entry whilst diary is locked" if @locked
-    @entries << entry
+    @entries.add_entry(entry)
   end
   def get_entries
     raise "Error cannot get entries whilst diary is locked" if @locked
-    @entries.each do |entry|
-      puts entry
-    end
+    @entries.get_entries
   end
 end
-=begin
-add_entry and get_entries shoud throw an error
-as it is initialized to locked
-when the user calls lock they throw errors again
-methods:
-lock
-unlock
-add_entry
-get_entries
-=end

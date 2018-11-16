@@ -4,9 +4,7 @@ describe SecretDiary do
   it "creates an instance of secret diary" do
     expect(secret_diary.instance_of? SecretDiary).to eq true
   end
-  it "initializes entries to the empty array" do
-    expect(secret_diary.entries).to eq []
-  end
+
   it "initializes locked instance variable to true" do
     expect(secret_diary.locked).to eq true
   end
@@ -20,7 +18,7 @@ describe SecretDiary do
   it "adds entries when unlocked" do
     secret_diary.unlock
     secret_diary.add_entry("Day 1")
-    expect(secret_diary.entries[0]).to eq "Day 1"
+    expect(secret_diary.entries.entry_log[0]).to eq "Day 1"
   end
   it "gets entries when unlocked" do
     secret_diary.unlock
