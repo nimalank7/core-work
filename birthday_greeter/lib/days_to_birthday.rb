@@ -12,3 +12,4 @@ def calculation(birthday_string)
   end
   return days_difference = difference(birthday)
 end
+# I need to write some feature tests for this
