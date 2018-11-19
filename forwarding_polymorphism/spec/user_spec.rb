@@ -31,5 +31,4 @@ describe User do
     expect(password).to receive(:authenticate) {true}
     user.authenticate("pass")
   end
-
 end
